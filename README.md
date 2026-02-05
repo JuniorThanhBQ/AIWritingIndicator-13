@@ -29,6 +29,7 @@ https://drive.google.com/drive/folders/1mGCH-1-q_PuMcXaE4WnIESjciMI_f1x5?usp=sha
 | Mã phiên bản | Ngày đăng | Nội dung |
 |------|--------|---------|
 | v1.0.0 | 03/02/2026 | Khởi tạo dự án, xây dựng front-end trên Streamlit, thử các mẫu model có sẵn trên Streamlit, viết các tài liệu cần thiết cho dự án |
+| v1.0.1 | 05/02/2026 | Cập nhật một số logic xử lý pdf. Tái cấu trúc xử lý ra thành các componenets, chia các file requirements ra thành từng phần |
 
 ## Tài liệu
 - [Streamlit](docs/Streamlit/)
