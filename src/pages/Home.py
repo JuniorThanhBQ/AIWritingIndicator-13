@@ -1,8 +1,12 @@
 import streamlit as st
 
+# load file styles.css lên
+# - f.read() : đọc file.
+# - <style> nội dung file vừa đọc </style>.
+# - unsafe_allow_html : cho phép chạy code html/css.
 def load_css():
     try:
-        with open("assets/css/styles_home.css") as f:
+        with open("assets/css/styles.css") as f:
             st.markdown(f"<style>{f.read()}</style>", unsafe_allow_html=True)
     except FileNotFoundError:
         pass

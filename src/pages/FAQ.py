@@ -1,8 +1,12 @@
 import streamlit as st
 
+# load file styles.css lên
+# - f.read() : đọc file.
+# - <style> nội dung file vừa đọc </style>.
+# - unsafe_allow_html : cho phép chạy code html/css.
 def load_css():
     try:
-        with open("assets/css/styles_FAQ.css") as f:
+        with open("assets/css/styles.css") as f:
             st.markdown(f"<style>{f.read()}</style>", unsafe_allow_html=True)
     except FileNotFoundError:
         pass
@@ -49,23 +53,51 @@ def render_step_light(num, title, text, points):
         </div>
         """, unsafe_allow_html=True)
 
+steps_data = [
+    {
+        "id": "01",
+        "title": "KHỞI TẠO VÀ ĐỊNH DANH",
+        "summary": "Thiết lập môi trường làm việc ban đầu để hệ thống nhận diện người dùng.",
+        "points": [
+            "Đăng nhập thông qua tài khoản sinh viên OU",
+            "Xác nhận quyền truy cập API",
+            "Chọn mục tiêu TOEIC (Ví dụ: 650+)"
+        ]
+    },
+    {
+        "id": "02",
+        "title": "PHƯƠNG THỨC KIỂM ĐỊNH",
+        "summary": "Tải lên nội dung cần đánh giá độ thuần thục và nguồn gốc.",
+        "points": [
+            "Dán văn bản trực tiếp (Plain Text)",
+            "Tải tệp tin PDF/Word (Lọc bỏ hình ảnh tự động)",
+            "Xác nhận bắt đầu quá trình phân tích"
+        ]
+    },
+    {
+        "id": "03",
+        "title": "ĐỌC HIỂU CHỈ SỐ AI",
+        "summary": "Giải mã các báo cáo được hệ thống trích xuất sau quá trình quét.",
+        "points": [
+            "Mức độ dự đoán AI (Tính bằng %)",
+            "Highlight các đoạn văn bản nghi vấn",
+            "Gợi ý chỉnh sửa để tăng tính học thuật"
+        ]
+    }
+]
+
 st.markdown('<div class="main-content-light">', unsafe_allow_html=True)
 
-render_step_light("01", "KHỞI TẠO VÀ ĐỊNH DANH",
-               "Thiết lập môi trường làm việc ban đầu để hệ thống nhận diện người dùng.",
-               ["Đăng nhập thông qua tài khoản sinh viên OU", "Xác nhận quyền truy cập API", "Chọn mục tiêu TOEIC (Ví dụ: 650+)"])
+for i, step in enumerate(steps_data):
+    render_step_light(
+        step["id"],
+        step["title"],
+        step["summary"],
+        step["points"]
+    )
 
-st.markdown('<div class="spacer-light"></div>', unsafe_allow_html=True)
-
-render_step_light("02", "PHƯƠNG THỨC KIỂM ĐỊNH",
-               "Tải lên nội dung cần đánh giá độ thuần thục và nguồn gốc.",
-               ["Dán văn bản trực tiếp (Plain Text)", "Tải tệp tin PDF/Word (Lọc bỏ hình ảnh tự động)", "Xác nhận bắt đầu quá trình phân tích"])
-
-st.markdown('<div class="spacer-light"></div>', unsafe_allow_html=True)
-
-render_step_light("03", "ĐỌC HIỂU CHỈ SỐ AI",
-               "Giải mã các báo cáo được hệ thống trích xuất sau quá trình quét.",
-               ["Mức độ dự đoán AI (Tính bằng %)", "Highlight các đoạn văn bản nghi vấn", "Gợi ý chỉnh sửa để tăng tính học thuật"])
+    if i < len(steps_data) - 1:
+        st.markdown('<div class="spacer-light"></div>', unsafe_allow_html=True)
 
 st.markdown('</div>', unsafe_allow_html=True)
 

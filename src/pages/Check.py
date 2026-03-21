@@ -6,7 +6,10 @@ from services.pdf_reader_services import PdfReaderManager
 from services.pipeline import PipelineManager
 from transformers import pipeline
 
-
+# load file styles.css lên
+# - f.read() : đọc file.
+# - <style> nội dung file vừa đọc </style>.
+# - unsafe_allow_html : cho phép chạy code html/css.
 def load_css():
     try:
         with open("assets/css/styles.css") as f:
@@ -100,7 +103,7 @@ with col_right:
 
             else:
 
-                with st.spinner("Đang tính toán..."):
+                with st.spinner("Đang xử lý yêu cầu..."):
 
                     try:
 

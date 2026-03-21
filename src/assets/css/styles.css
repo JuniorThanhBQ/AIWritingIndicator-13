@@ -1,8 +1,213 @@
-@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Space+Grotesk:wght@300;500;700&family=Inter:wght@400;700&display=swap');
 
 .stApp {
     background-color: #f8fafc !important;
-    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-family: 'Plus Jakarta Sans', 'Inter', sans-serif;
+}
+
+.footer-v3, .footer-light, .footer-minimal, .footer-content {
+    text-align: center;
+    padding: 40px 0;
+    color: #94a3b8;
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+    margin-top: 80px;
+}
+
+.dot { color: #cbd5e1; }
+
+@media (max-width: 768px) {
+    .main-title { font-size: 3.5rem !important; }
+    .hero-text-light { font-size: 2.5rem !important; }
+    .glass-card { height: auto !important; padding: 40px 20px !important; }
+}
+
+.main-wrapper {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.header-section {
+    padding: 100px 0 60px 0;
+    text-align: left;
+}
+
+.eyebrow {
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 4px;
+    color: #3b82f6;
+    margin-bottom: 20px;
+}
+
+.main-title {
+    font-family: 'Space Grotesk', sans-serif !important;
+    font-size: 6rem !important;
+    line-height: 0.9 !important;
+    font-weight: 700 !important;
+    color: #0f172a !important;
+    margin-bottom: 30px !important;
+}
+
+.text-outline {
+    color: transparent !important;
+    -webkit-text-stroke: 1.5px #0f172a;
+}
+
+.sub-text {
+    font-size: 1.25rem;
+    color: #64748b;
+    max-width: 600px;
+    line-height: 1.6;
+}
+
+.glass-card {
+    background: #f8fafc;
+    border: 1px solid #e2e8f0;
+    padding: 60px 40px;
+    border-radius: 32px;
+    transition: all 0.5s cubic-bezier(0.19, 1, 0.22, 1);
+    position: relative;
+    overflow: hidden;
+    height: 400px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+}
+
+.glass-card:hover {
+    background: #ffffff;
+    border-color: #3b82f6;
+    transform: translateY(-15px);
+    box-shadow: 0 30px 60px rgba(15, 23, 42, 0.1);
+}
+
+.card-num {
+    position: absolute;
+    top: 40px;
+    right: 40px;
+    font-size: 4rem;
+    font-weight: 700;
+    color: #e2e8f0;
+    font-family: 'Space Grotesk', sans-serif;
+    transition: 0.5s;
+}
+
+.glass-card:hover .card-num {
+    color: #dbeafe;
+    transform: scale(1.2);
+}
+
+.glass-card h3 {
+    font-family: 'Space Grotesk', sans-serif !important;
+    font-size: 1.75rem !important;
+    font-weight: 700 !important;
+    margin-bottom: 15px !important;
+}
+
+.glass-card p {
+    color: #64748b;
+    font-size: 1rem;
+    margin-bottom: 30px;
+}
+
+.action-link {
+    font-weight: 700;
+    font-size: 0.9rem;
+    letter-spacing: 1px;
+    color: #3b82f6;
+    cursor: pointer;
+}
+
+.guide-wrapper-light {
+    padding: 20px 40px;
+    color: #1e293b;
+}
+
+.header-light { text-align: center; padding: 60px 0; }
+
+.badge-light {
+    display: inline-block;
+    padding: 6px 14px;
+    background: #f1f5f9;
+    color: #475569;
+    border-radius: 50px;
+    font-size: 0.65rem;
+    font-weight: 700;
+    letter-spacing: 2px;
+    margin-bottom: 20px;
+}
+
+.hero-text-light {
+    font-size: 4rem !important;
+    font-weight: 700 !important;
+    color: #0f172a !important;
+    letter-spacing: -1px !important;
+}
+
+.gradient-text-blue {
+    background: linear-gradient(90deg, #3b82f6, #6366f1);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.nav-item-light {
+    background: white;
+    border: 1px solid #f1f5f9;
+    padding: 15px;
+    text-align: center;
+    border-radius: 12px;
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: #64748b;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+}
+
+.step-box-light { position: relative; margin-top: 40px; }
+
+.step-num-light {
+    font-size: 6rem;
+    font-weight: 800;
+    color: #f1f5f9;
+    position: absolute;
+    top: -40px;
+    left: -20px;
+    z-index: 0;
+}
+
+.step-title-light {
+    color: #0f172a !important;
+    font-size: 1.6rem !important;
+    position: relative;
+    z-index: 1;
+}
+
+.step-summary-light {
+    color: #64748b;
+    font-size: 1rem;
+    line-height: 1.6;
+    margin-bottom: 20px;
+}
+
+.point-item-light {
+    padding: 12px 0;
+    border-bottom: 1px solid #f1f5f9;
+    color: #334155;
+    font-size: 0.9rem;
+}
+
+.ui-mockup-light {
+    background: #ffffff;
+    border: 1px solid #f1f5f9;
+    border-radius: 20px;
+    padding: 30px;
+    height: 240px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 12px;
 }
 
 .header-split {
@@ -28,29 +233,13 @@
     background: rgba(16, 185, 129, 0.1);
     padding: 4px 12px;
     border-radius: 50px;
-    letter-spacing: 1px;
-}
-
-.blue-grad {
-    color: #3b82f6;
-}
-
-.label-v3 {
-    font-size: 0.75rem;
-    font-weight: 700;
-    color: #94a3b8;
-    letter-spacing: 1.5px;
-    margin-bottom: 15px;
 }
 
 .stTextArea textarea {
     background-color: #ffffff !important;
     border: 1px solid #e2e8f0 !important;
     border-radius: 16px !important;
-    font-size: 1rem !important;
-    line-height: 1.6 !important;
     padding: 20px !important;
-    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.02) !important;
 }
 
 .stContainer {
@@ -61,36 +250,17 @@
     padding: 30px !important;
 }
 
-.empty-state {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 400px;
-    text-align: center;
-    color: #94a3b8;
-    font-style: italic;
-    font-size: 0.9rem;
-}
-
 div.stButton > button {
     background-color: #0f172a !important;
     color: white !important;
     border-radius: 12px !important;
     padding: 15px 0 !important;
     font-weight: 700 !important;
-    border: none !important;
-    margin-top: 10px;
+    transition: 0.3s;
 }
 
 div.stButton > button:hover {
     background-color: #3b82f6 !important;
-}
-
-.footer-v3 {
-    text-align: center;
-    padding: 40px 0;
-    color: #cbd5e1;
-    font-size: 0.7rem;
 }
 
 .stDownloadButton > button {
@@ -100,31 +270,22 @@ div.stButton > button:hover {
     border-radius: 12px !important;
     padding: 10px 0 !important;
     font-weight: 600 !important;
-    transition: all 0.3s ease !important;
 }
 
 .stDownloadButton > button:hover {
-    background-color: #f8fafc !important;
     border-color: #3b82f6 !important;
     color: #3b82f6 !important;
 }
 
-.metric-label {
-    font-size: 11px;
-    color: #64748b;
-    letter-spacing: 0.05em;
-    margin-bottom: 2px;
-}
+.metric-label { font-size: 11px; color: #64748b; }
 .metric-value {
     font-size: 28px;
     font-weight: 800;
     color: #0f172a;
     margin-bottom: 15px;
-    font-family: 'Segoe UI', Roboto, sans-serif;
 }
 .result-box {
     padding: 25px;
     background-color: #ffffff;
     border: 1px solid #e2e8f0;
-    box-shadow: 0 1px 2px rgba(0,0,0,0.05);
 }
