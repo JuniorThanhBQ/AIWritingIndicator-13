@@ -1,5 +1,6 @@
 from pypdf import PdfReader
 
+
 class PdfReaderManager:
     @staticmethod
     def load_file(data):

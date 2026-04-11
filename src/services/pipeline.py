@@ -1,5 +1,6 @@
 import re
 
+
 class PipelineManager:
     @staticmethod
     def input_processing(text):
@@ -12,26 +13,26 @@ class PipelineManager:
 
     @staticmethod
     def output_processing(text, clf, st):
-            raw = clf(text)
+        raw = clf(text)
 
-            result = raw[0][0] if isinstance(raw[0], list) else raw[0]
+        result = raw[0][0] if isinstance(raw[0], list) else raw[0]
 
-            label_map = {
-                "LABEL_1": "Văn bản do AI tạo",
-                "LABEL_0": "Văn bản do con người viết"
-            }
+        label_map = {
+            "LABEL_1": "Văn bản do AI tạo",
+            "LABEL_0": "Văn bản do con người viết"
+        }
 
-            label = label_map.get(result["label"], result["label"])
-            confidence = result["score"] * 100
+        label = label_map.get(result["label"], result["label"])
+        confidence = result["score"] * 100
 
-            st.divider()
-            st.subheader("Kết quả phân tích")
+        st.divider()
+        st.subheader("Kết quả phân tích")
 
-            if result["label"] == "LABEL_1":
-                st.error(f"**{label}**")
-                st.progress(result["score"])
-            else:
-                st.success(f"**{label}**")
-                st.progress(result["score"])
+        if result["label"] == "LABEL_1":
+            st.error(f"**{label}**")
+            st.progress(result["score"])
+        else:
+            st.success(f"**{label}**")
+            st.progress(result["score"])
 
-            st.write(f"Độ tin cậy: **{confidence:.2f}%**")
+        st.write(f"Độ tin cậy: **{confidence:.2f}%**")

@@ -1,26 +1,15 @@
 import streamlit as st
 
-# load file styles.css lên
-# - f.read() : đọc file.
-# - <style> nội dung file vừa đọc </style>.
-# - unsafe_allow_html : cho phép chạy code html/css.
-def load_css():
-    try:
-        with open("assets/css/styles.css") as f:
-            st.markdown(f"<style>{f.read()}</style>", unsafe_allow_html=True)
-    except FileNotFoundError:
-        pass
+from utils.utils import init_page, render_footer
 
-load_css()
-
-st.set_page_config(page_title="AI Writing Indicator", layout="wide")
+init_page("AI News Indicator")
 
 st.markdown("""
 <div class="main-wrapper">
     <div class="header-section">
-        <p class="eyebrow">OPEN UNIVERSITY • RESEARCH PROJECT</p>
-        <h1 class="main-title">AI WRITING<br><span class="text-outline">INDICATOR</span></h1>
-        <p class="sub-text">Hệ thống phân tích ngôn ngữ tự nhiên, xác định độ tin cậy và nguồn gốc văn bản bằng thuật toán nâng cao.</p>
+        <p class="eyebrow">HCMC-OU • AI DETECTOR PROJECT</p>
+        <h1 class="main-title">AI NEWS<br><span class="text-outline">INDICATOR</span></h1>
+        <p class="sub-text">Hệ thống với khả năng phân tích ngôn ngữ tự nhiên, xác định độ tin cậy và phân loại văn bản báo trí có sử dụng trí tuệ nhân tạo bằng mô hình Deep Learning.</p>
     </div>
 """, unsafe_allow_html=True)
 
@@ -34,7 +23,9 @@ with col1:
         <div class="card-content">
             <h3>NHẬP VĂN BẢN</h3>
             <p>Kiểm tra trực tiếp các đoạn văn bản ngắn hoặc bài luận. Nhận kết quả phân tích theo thời gian thực với biểu đồ chi tiết.</p>
-            <div class="action-link">BẮT ĐẦU PHÂN TÍCH →</div>
+            <a href="/detector" target="_self" class="action-link" style="text-decoration: none;">
+            BẮT ĐẦU PHÂN TÍCH →
+            </a>
         </div>
     </div>
     """, unsafe_allow_html=True)
@@ -45,21 +36,12 @@ with col2:
         <div class="card-num">02</div>
         <div class="card-content">
             <h3>XỬ LÝ TỆP TIN</h3>
-            <p>Hỗ trợ quét tệp số lượng lớn (PDF, DOCX). Hệ thống tự động bóc tách nội dung và xuất báo cáo kiểm định chuyên sâu.</p>
-            <div class="action-link">TẢI TỆP LÊN →</div>
+            <p>Hỗ trợ quét tệp PDF, DOCX. Hệ thống tự động bóc tách nội dung và chèn vào khung nhập liệu. Tối ưu hoá trải nghiệm người dùng</p>
+            <a href="/detector" target="_self" class="action-link" style="text-decoration: none;">
+                TẢI TỆP LÊN →
+            </a>
         </div>
     </div>
     """, unsafe_allow_html=True)
 
-st.markdown("""
-    <div class="footer-minimal">
-        <div class="footer-content">
-            <span>© 2026 OUEL PROJECT</span>
-            <span class="dot">•</span>
-            <span>DEVELOPED BY OU STUDENTS</span>
-            <span class="dot">•</span>
-            <span>v2.0 STABLE</span>
-        </div>
-    </div>
-</div>
-""", unsafe_allow_html=True)
+render_footer()
