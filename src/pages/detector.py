@@ -10,7 +10,11 @@ from utils.utils import init_page, render_footer
 
 @st.cache_resource
 def load_model():
-    return pipeline("text-classification", model="Juner/AI-generated-text-detection")
+    return pipeline(
+        "text-classification",
+        model="ITPhongou23/AINewsIndicator",
+        subfolder="phobert_model"
+    )
 
 
 clf = load_model()
