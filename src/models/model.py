@@ -1,1 +1,0 @@
-# Các code model trong thư mục này
