@@ -1,5 +1,6 @@
 import streamlit as st
 from transformers import pipeline
+import os
 
 from src.services.generate_docx_services import generate_docx
 from src.services.pdf_reader_services import PdfReaderManager
@@ -17,6 +18,8 @@ err_msg = ""
 label1 = ""
 label2 = ""
 text_kq = ""
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+VNCORENLP_PATH = os.path.join(BASE_DIR, "vncorenlp")
 
 #Hàm.
 @st.cache_resource
@@ -25,11 +28,11 @@ def load_model(model_name):
 
 @st.cache_resource
 def load_phobert_interface():
-    return PhoBERTDataInterface(vncorenlp_save_dir='vncorenlp')
+    return PhoBERTDataInterface(vncorenlp_save_dir=VNCORENLP_PATH)
 
 @st.cache_resource
 def load_file_model(model_name):
-    from services.xgb_interface import XGBInterface
+    from src.services.xgb_interface import XGBInterface
     return XGBInterface(model_name)
 
 def get_model(status, options, model_name):
@@ -55,12 +58,12 @@ def normalize_result(result):
 
     raw_label = result.get("label", "Unknown")
     score = result.get("score", 0)
-
+    prediction = result.get("prediction", "")
     label = label_map.get(raw_label, raw_label)
 
-    return label, score, raw_label
+    return label, score, raw_label, prediction
 
-def render_score(label1, label2, score):
+def render_score_phobert(label1, label2, score):
     st.markdown(f"""
     <div class="badge-container">
         <div class="badge-green">
@@ -71,6 +74,36 @@ def render_score(label1, label2, score):
         </div>
     </div>
     """, unsafe_allow_html=True)
+
+def render_score_xgboost(label1, label2, prediction, score):
+    score_pct = score * 100
+    inverse_pct = 100 - score_pct
+
+    if prediction == 0:
+        score_0 = inverse_pct
+        score_1 = score_pct
+        if score_0 < score_1:
+            exp = score_0
+            score_0 = score_1
+            score_1 = exp
+    else:
+        score_0 = score_pct
+        score_1 = inverse_pct
+        if score_0 < score_1:
+            exp = score_0
+            score_0 = score_1
+            score_1 = exp
+
+    st.markdown(f"""
+        <div class="badge-container">
+            <div class="badge-green">
+                {label1} {score_0:.1f}%
+            </div>
+            <div class="badge-blue">
+                {label2} {score_1:.1f}%
+            </div>
+        </div>
+        """, unsafe_allow_html=True)
 
 def render_circle_score(label, score):
     st.markdown(f"""
@@ -162,7 +195,7 @@ with col_right:
                         if isinstance(result, list):
                             result = result[0]
 
-                        result_label, score, label = normalize_result(result)
+                        result_label, score, label, prediction = normalize_result(result)
 
                         label1, label2, text_kq = set_label(result_label)
 
@@ -170,8 +203,10 @@ with col_right:
 
                         #render UI.
                         render_circle_score(result_label, score)
-
-                        render_score(label1, label2, score)
+                        if n < 2:
+                            render_score_phobert(label1, label2, score)
+                        else:
+                            render_score_xgboost(label1, label2, prediction, score)
 
                         st.markdown('<div style="margin-top:20px;"></div>',unsafe_allow_html=True)
 
