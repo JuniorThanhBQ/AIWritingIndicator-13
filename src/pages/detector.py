@@ -9,7 +9,6 @@ from src.services.phobert_interface import PhoBERTDataInterface
 from src.utils.utils import init_page, render_footer
 
 
-#Biến.
 init_page("AI Detector")
 options = ["Phobert-large-VietNamese-news-ai-detection", "Phobert-v2-VietNamese-news-ai-detection", "xgboost-final-streamlit-traditional-unstable","xgboost-final-streamlit-lite","xgboost-final-streamlit"]
 model_name = ["JuniorThanh/phobert-large-vietnamese-news-ai-detection","JuniorThanh/phobert-v2-vietnamese-news-ai-detection","JuniorThanh/xgboost_final_streamlit_traditional_unstable","JuniorThanh/xgboost_final_streamlit_lite","JuniorThanh/xgboost_final_streamlit"]
@@ -21,7 +20,6 @@ text_kq = ""
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 VNCORENLP_PATH = os.path.join(BASE_DIR, "vncorenlp")
 
-#Hàm.
 @st.cache_resource
 def load_model(model_name):
     return pipeline("text-classification", model=model_name, truncation=True, max_length=256)
@@ -114,7 +112,6 @@ def render_circle_score(label, score):
     </div>
     """, unsafe_allow_html=True)
 
-#Header.
 if "status" not in st.session_state:
     st.session_state.status = options[0]
 
@@ -131,7 +128,6 @@ st.markdown(f"""
     </div>
 """, unsafe_allow_html=True)
 
-#Body.
 col_left, col_right = st.columns(2, gap="medium")
 
 with col_left:
@@ -201,7 +197,7 @@ with col_right:
 
                         docx_file = generate_docx(processed_text, result_label, score)
 
-                        #render UI.
+
                         render_circle_score(result_label, score)
                         if n < 2:
                             render_score_phobert(label1, label2, score)
