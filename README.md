@@ -1,15 +1,103 @@
 # AI Writing Indicator
 
----
+## English Description
 
-## I. Mô tả
+The "AI Writing Indicator" project is a binary classification task. The goal is to train a model that can detect the use of Artificial Intelligence (AI) in Vietnamese news articles and classify whether a text was written by AI or a human.
+
+The model is designed to work with Vietnamese text.
+
+
+## II. Team Members
+
+| Student ID | Full Name | Role | Responsibilities |
+|---|---|---|---|
+| 2351050111 | Đào Thị Kim Ngân | Member | Build code templates, create processing pipelines, prepare data, and train models. |
+| 2351050133 | Nguyễn Thanh Phong | Member | Develop the application, integrate models into the system, and create application tests to check model performance in real use. |
+| 2351050164 | Văn Trung Thành | Team Leader | Study the theory, plan the project steps, collect data, support data processing and model training, evaluate the results, and write the final report. |
+
+
+## III. Resources and Technologies
+
+- **Framework:** Streamlit
+- **Model and Dataset Storage:** Hugging Face
+- **Notebook Environment:** Google Colab
+- **Original Dataset:** ICCIES-2025-DetectAI/vietnamese_news_human_ai
+- **Models Trained from Scratch:** ViBERT and LSTM
+- **Pre-trained Model for Fine-tuning:** PhoBERT
+- **Version Control:** GitHub
+
+
+## IV. Application Guide
+
+### 1. Setup and Start
+
+1. Open the project root folder `/AIWritingIndicator`.
+2. Open Git Bash.
+3. Run the following commands:
+
+```bash
+chmod +x run_streamlit.sh
+source run_streamlit.sh
+```
+
+### 2. Run the Application
+
+1. Open the project root folder `/AIWritingIndicator`.
+2. Open Command Prompt.
+3. Run the following commands:
+
+```cmd
+venv\Scripts\activate
+cd src
+streamlit run main.py
+```
+
+*Note: The virtual environment activation command is for Windows.*
+
+### 3. Access the Application
+
+After starting the application, open one of these URLs in your web browser:
+
+- **Local URL:** http://localhost:8501
+- **Network URL:** http://192.168.1.2:8501
+
+*Note: The network IP address may be different on your computer.*
+
+### 4. Application Testing (Not Available Yet)
+
+1. Open the project root folder `/AIWritingIndicator`.
+2. Open Command Prompt.
+3. Run the following commands:
+
+```cmd
+venv\Scripts\activate
+cd src/test
+python test_tools.py
+```
+
+## V. Demo
+
+- [Demo Videos](https://drive.google.com/drive/u/0/folders/1BVbH_WtRwYL6I-k_UYHpFzbQI4x9o5oC)
+- [Demo Images](https://drive.google.com/drive/u/0/folders/1KnI1r4ohItFuDT7zW_XjOdAShVwcwYC8)
+
+
+## VI. Documentation
+
+- [Streamlit Documentation](docs/streamlit)
+- [Model Documentation](docs/models)
+- [Data Documentation](docs/data)
+- [Team Project Files](https://drive.google.com/drive/u/0/folders/1p7XzVhdrkYSfHFNE1ingXyEY0EVP63oa)
+- [Team GitHub Repository](https://github.com/JuniorThanhBQ/AIWritingIndicator-13)
+
+<br>
+
+## Mô tả tiếng Việt
 
 Dự án "AI Writing Indicator" thuộc bài toán phân loại nhị phân. Mục tiêu là huấn luyện một mô hình có khả năng đánh giá
 mức độ sử dụng trí tuệ nhân tạo trong tạo sinh văn bản thuộc lĩnh vực báo trí và kết luận đúng văn bản/bài báo đó do AI
 hoặc nguời viết.
 Ngôn ngữ của mô hình là tiếng Việt.
 
----
 
 ## II. Thành viên nhóm
 
