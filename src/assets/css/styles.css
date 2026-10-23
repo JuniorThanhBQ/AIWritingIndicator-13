@@ -1,33 +1,17 @@
 @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Space+Grotesk:wght@300;500;700&family=Inter:wght@400;700&display=swap');
 
-:root {
-    --bg-main: #f8fafc;
-    --bg-card: #ffffff;
-    --bg-soft: #f1f5f9;
-    --text-main: #0f172a;
-    --text-sub: #64748b;
-    --text-muted: #94a3b8;
-    --border-main: #e2e8f0;
+.stApp {
+    --bg-main: light-dark(#f8fafc, #0f172a);
+    --bg-card: light-dark(#ffffff, #1e293b);
+    --bg-soft: light-dark(#f1f5f9, #334155);
+    --text-main: light-dark(#0f172a, #f8fafc);
+    --text-sub: light-dark(#64748b, #94a3b8);
+    --text-muted: light-dark(#94a3b8, #64748b);
+    --border-main: light-dark(#e2e8f0, #334155);
     --primary: #3b82f6;
-    --dot-color: #cbd5e1;
-    --shadow-hover: rgba(15, 23, 42, 0.1);
-    --bg-success-soft: rgba(16, 185, 129, 0.1);
-}
-
-@media (prefers-color-scheme: dark) {
-    :root {
-        --bg-main: #0f172a;
-        --bg-card: #1e293b;
-        --bg-soft: #334155;
-        --text-main: #f8fafc;
-        --text-sub: #94a3b8;
-        --text-muted: #64748b;
-        --border-main: #334155;
-        --primary: #3b82f6;
-        --dot-color: #475569;
-        --shadow-hover: rgba(0, 0, 0, 0.5);
-        --bg-success-soft: rgba(16, 185, 129, 0.15);
-    }
+    --dot-color: light-dark(#cbd5e1, #475569);
+    --shadow-hover: light-dark(rgba(15, 23, 42, 0.1), rgba(0, 0, 0, 0.5));
+    --bg-success-soft: light-dark(rgba(16, 185, 129, 0.1), rgba(16, 185, 129, 0.15));
 }
 
 .stApp {

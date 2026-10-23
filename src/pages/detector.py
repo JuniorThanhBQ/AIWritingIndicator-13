@@ -1,3 +1,5 @@
+from pathlib import Path
+
 import streamlit as st
 from transformers import pipeline
 
@@ -6,41 +8,24 @@ from services.pdf_reader_services import PdfReaderManager
 from services.pipeline import PipelineManager
 from services.phobert_interface import PhoBERTDataInterface
 from utils.utils import init_page, render_footer
-from huggingface_hub import hf_hub_download
-import joblib
 
 #Biến.
 init_page("AI Detector")
-options = ["Phobert-large-VietNamese-news-ai-detection", "Phobert-v2-VietNamese-news-ai-detection", "xgboost-final-streamlit-traditional-unstable","xgboost-final-streamlit-lite","xgboost-final-streamlit"]
-model_name = ["JuniorThanh/phobert-large-vietnamese-news-ai-detection","JuniorThanh/phobert-v2-vietnamese-news-ai-detection","JuniorThanh/xgboost_final_streamlit_traditional_unstable","JuniorThanh/xgboost_final_streamlit_lite","JuniorThanh/xgboost_final_streamlit"]
-n = 0
+PRODUCTION_MODEL = "JuniorThanh/phobert-v2-vietnamese-news-ai-detection"
 err_msg = ""
 label1 = ""
 label2 = ""
 text_kq = ""
 
 #Hàm.
-@st.cache_resource
-def load_model(model_name):
-    return pipeline("text-classification", model=model_name, truncation=True, max_length=256)
+@st.cache_resource(max_entries=1)
+def load_model():
+    return pipeline("text-classification", model=PRODUCTION_MODEL, truncation=True, max_length=256)
 
 @st.cache_resource
 def load_phobert_interface():
-    return PhoBERTDataInterface(vncorenlp_save_dir='vncorenlp')
-
-@st.cache_resource
-def load_file_model(model_name):
-    from services.xgb_interface import XGBInterface
-    return XGBInterface(model_name)
-
-def get_model(status, options, model_name):
-    for i in range(5):
-        n = i
-        if status == options[i]:
-            if i < 2:
-                return load_model(model_name[i]), n
-            else:
-                return load_file_model(model_name[i]), n
+    vncorenlp_dir = Path(__file__).resolve().parents[1] / "vncorenlp"
+    return PhoBERTDataInterface(vncorenlp_save_dir=str(vncorenlp_dir))
 
 def set_label(result_label):
     if result_label == 'AI':
@@ -83,19 +68,10 @@ def render_circle_score(label, score):
     """, unsafe_allow_html=True)
 
 #Header.
-if "status" not in st.session_state:
-    st.session_state.status = options[0]
-
-st.selectbox("Model Deep Learning:", options, key="status")
-
-status = st.session_state.status
-
-clf, n = get_model(status, options, model_name)
-
 st.markdown(f"""
     <div class="header-split">
-        <p class="eyebrow_1">{model_name[n]}</p>
-        <div class="status-badge">● Mô hình {n+1}:</div>
+        <p class="eyebrow_1">{PRODUCTION_MODEL}</p>
+        <div class="status-badge">● PhoBERT-v2</div>
     </div>
 """, unsafe_allow_html=True)
 
@@ -124,7 +100,7 @@ with col_left:
 
     word_count = len(text.strip().split())
 
-    check_btn = st.button("PHÂN TÍCH NGAY", use_container_width=True)
+    check_btn = st.button("PHÂN TÍCH NGAY", width="stretch")
 
     if check_btn:
         if 200 <= word_count <= 600:
@@ -146,19 +122,16 @@ with col_right:
             else:
                 with st.spinner("Đang xử lý yêu cầu"):
                     try:
-                        if status == options[0] or status == options[1]:
-                            phobert_interface = load_phobert_interface()
-                            try:
-                                processed_data = phobert_interface.process_data(text, label=0)
-                                final_text = processed_data["segmented_text"]
-                            except ValueError as ve:
-                                st.warning(str(ve))
-                                final_text = processed_text
+                        phobert_interface = load_phobert_interface()
+                        try:
+                            processed_data = phobert_interface.process_data(text, label=0)
+                            final_text = processed_data["segmented_text"]
+                        except ValueError as ve:
+                            st.warning(str(ve))
+                            final_text = processed_text
 
-                            result = clf(final_text, truncation=True, max_length=256)
-                        else:
-                            result = clf.predict(processed_text)
-                            result = {"label": "LABEL_1" if result["prediction"] == 1 else "LABEL_0", "score": result["probability"]}
+                        clf = load_model()
+                        result = clf(final_text, truncation=True, max_length=256)
 
                         if isinstance(result, list):
                             result = result[0]
@@ -178,7 +151,7 @@ with col_right:
 
                         st.markdown(f"""<div class="result-text">{text_kq}</div>""", unsafe_allow_html=True)
 
-                        st.download_button(label="XUẤT BÁO CÁO (.DOCX)", data=docx_file, file_name="Kết quả kiểm tra.docx", mime="application/vnd.openxmlformats-officedocument.wordprocessingml.document", use_container_width=True)
+                        st.download_button(label="XUẤT BÁO CÁO (.DOCX)", data=docx_file, file_name="Kết quả kiểm tra.docx", mime="application/vnd.openxmlformats-officedocument.wordprocessingml.document", width="stretch")
 
                     except Exception as e:
                         st.error(f"Lỗi kết nối mô hình: {e}")
