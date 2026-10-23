@@ -1,22 +1,73 @@
+<div align="center">
+
 # AI Writing Indicator
 
-## English Description
+
+<img src="https://res.cloudinary.com/dfolk8pz2/image/upload/r_25/v1792754554/ai-writing-indicator-banner_hyslor.png" alt="AI Writing Indicator Banner" />
+
+
+
+<p>
+  <strong>AI Writing Indicator</strong> - A tool for evaluating AI-generated misinformation in Vietnamese.
+</p>
+
+<p>
+  <a href="https://en.wikipedia.org/wiki/Natural_language_processing">
+    <img src="https://img.shields.io/badge/NLP-Natural%20Language%20Processing-FFD21E?logo=huggingface&logoColor=black" alt="NLP" />
+  </a>
+  <a href="https://en.wikipedia.org/wiki/Binary_classification">
+    <img src="https://img.shields.io/badge/Binary%20Classification-ML%20Task-00897B?logo=scikitlearn&logoColor=white" alt="Binary Classification" />
+  </a>
+  <a href="https://en.wikipedia.org/wiki/Intelligent_agent">
+    <img src="https://img.shields.io/badge/AI%20Agent-Web%20Search-8A2BE2?logo=googlegemini&logoColor=white" alt="AI Agent Web Search" />
+  </a>
+  <a href="https://streamlit.io/">
+    <img src="https://img.shields.io/badge/Streamlit-1.64.0-FF4B4B?logo=streamlit&logoColor=white" alt="Streamlit" />
+  </a>
+  <a href="https://pandas.pydata.org/">
+    <img src="https://img.shields.io/badge/Pandas-3.1.0-150458?logo=pandas&logoColor=white" alt="Pandas" />
+  </a>
+  <a href="https://numpy.org/">
+    <img src="https://img.shields.io/badge/NumPy-2.5.4-013243?logo=numpy&logoColor=white" alt="NumPy" />
+  </a>
+  <a href="https://colab.research.google.com/">
+    <img src="https://img.shields.io/badge/Google%20Colab-Free%20Tier-F9AB00?logo=googlecolab&logoColor=white" alt="Google Colab" />
+  </a>
+  <a href="https://www.nvidia.com/en-us/data-center/tesla-t4/">
+    <img src="https://img.shields.io/badge/NVIDIA-T4%20GPU-76B900?logo=nvidia&logoColor=white" alt="NVIDIA T4 GPU" />
+  </a>
+  <a href="https://docs.astral.sh/uv/">
+    <img src="https://img.shields.io/badge/uv-0.13.5-DE5FE9?logo=uv&logoColor=white" alt="uv" />
+  </a>
+  <a href="https://www.gnu.org/software/make/">
+    <img src="https://img.shields.io/badge/Makefile-GNU%20Make-427819?logo=gnu&logoColor=white" alt="Makefile" />
+  </a>
+</p>
+
+
+
+
+</div>
+
+> [!IMPORTANT]
+> 
+> ## English Description Section
 
 The "AI Writing Indicator" project is a binary classification task. The goal is to train a model that can detect the use of Artificial Intelligence (AI) in Vietnamese news articles and classify whether a text was written by AI or a human.
 
 The model is designed to work with Vietnamese text.
 
 
-## II. Team Members
+## I. Team Members
 
-| Student ID | Full Name | Role | Responsibilities |
-|---|---|---|---|
-| 2351050111 | Đào Thị Kim Ngân | Member | Build code templates, create processing pipelines, prepare data, and train models. |
-| 2351050133 | Nguyễn Thanh Phong | Member | Develop the application, integrate models into the system, and create application tests to check model performance in real use. |
-| 2351050164 | Văn Trung Thành | Team Leader | Study the theory, plan the project steps, collect data, support data processing and model training, evaluate the results, and write the final report. |
+| Student ID | Full Name          | Role        | Responsibilities                                                                                                                                      |
+| ---------- | ------------------ | ----------- | ----------------------------------------------------------------------------------------------------------------------------------------------------- |
+| 2351050111 | Đao Thi Kim Ngan   | Member      | Build code templates, create processing pipelines, prepare data, and train models.                                                                    |
+| 2351050133 | Nguyen Thanh Phong | Member      | Develop the application, integrate models into the system, and create application tests to check model performance in real use.                       |
+| 2351050164 | Van Trung Thanh    | Team Lead | Study the theory, plan the project steps, collect data, support data processing and model training, evaluate the results, and write the final report. |
 
 
-## III. Resources and Technologies
+## II. Resources and Technologies
 
 - **Framework:** Streamlit
 - **Model and Dataset Storage:** Hugging Face
@@ -27,7 +78,7 @@ The model is designed to work with Vietnamese text.
 - **Version Control:** GitHub
 
 
-## IV. Application Guide
+## III. Application Guide
 
 ### 1. Setup and Start
 
@@ -75,13 +126,13 @@ cd src/test
 python test_tools.py
 ```
 
-## V. Demo
+## IV. Demo
 
 - [Demo Videos](https://drive.google.com/drive/u/0/folders/1BVbH_WtRwYL6I-k_UYHpFzbQI4x9o5oC)
 - [Demo Images](https://drive.google.com/drive/u/0/folders/1KnI1r4ohItFuDT7zW_XjOdAShVwcwYC8)
 
 
-## VI. Documentation
+## V. Documentation
 
 - [Streamlit Documentation](docs/streamlit)
 - [Model Documentation](docs/models)
@@ -91,7 +142,9 @@ python test_tools.py
 
 <br>
 
-## Mô tả tiếng Việt
+> [!IMPORTANT]
+> 
+> ## Phần mô tả tiếng Việt 
 
 Dự án "AI Writing Indicator" thuộc bài toán phân loại nhị phân. Mục tiêu là huấn luyện một mô hình có khả năng đánh giá
 mức độ sử dụng trí tuệ nhân tạo trong tạo sinh văn bản thuộc lĩnh vực báo trí và kết luận đúng văn bản/bài báo đó do AI
@@ -99,17 +152,17 @@ hoặc nguời viết.
 Ngôn ngữ của mô hình là tiếng Việt.
 
 
-## II. Thành viên nhóm
+## I. Thành viên nhóm
 
 | MSSV       | Họ tên             | Vai trò     | Nhiệm vụ                                                                                                                                          |
-|------------|--------------------|-------------|---------------------------------------------------------------------------------------------------------------------------------------------------|
+| ---------- | ------------------ | ----------- | ------------------------------------------------------------------------------------------------------------------------------------------------- |
 | 2351050111 | Đào Thị Kim Ngân   | Thành viên  | Xây dựng code templates, dựng các pipeline quy trình và thực hiện xử lý dữ liệu và huấn luyện mô hình                                             |
 | 2351050133 | Nguyễn Thanh Phong | Thành viên  | Phát triển ứng dụng và tích hợp mô hình vào hệ thống. Xây dựng bộ kiểm thử ứng dụng để test hiệu quả thực tế mô hình                              |
 | 2351050164 | Văn Trung Thành    | Trưởng nhóm | Phân tích lý thuyết và đề ra các bước thực hiện đề tài. Thu thập dữ liệu và hỗ trợ bước xử lý - huấn luyện mô hình. Đánh giá và tổng kết mô hình. |
 
 ---
 
-## III. Tài nguyên sử dụng
+## II. Tài nguyên sử dụng
 
 - **Framework**: Streamlit
 - **Lưu trữ model, dataset**: HuggingFace
@@ -121,7 +174,7 @@ Ngôn ngữ của mô hình là tiếng Việt.
 
 ---
 
-## IV. Hướng dẫn ứng dụng
+## III. Hướng dẫn ứng dụng
 ### 1. Khởi tạo và chạy
 <pre>
 - Đứng tại thư mục gốc /AIWritingIndicator
@@ -153,13 +206,13 @@ Ngôn ngữ của mô hình là tiếng Việt.
 
 ---
 
-## V. Demo
+## IV. Demo
 - [Videos demo](https://drive.google.com/drive/u/0/folders/1BVbH_WtRwYL6I-k_UYHpFzbQI4x9o5oC)
 - [Images demo](https://drive.google.com/drive/u/0/folders/1KnI1r4ohItFuDT7zW_XjOdAShVwcwYC8)
 
 ---
 
-## VI. Tài liệu
+## V. Tài liệu
 
 - [Các README streamlit](docs/streamlit)
 - [Các README models](docs/models)
