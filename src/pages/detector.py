@@ -71,7 +71,6 @@ def render_circle_score(label, score):
 st.markdown(f"""
     <div class="header-split">
         <p class="eyebrow_1">{PRODUCTION_MODEL}</p>
-        <div class="status-badge">● PhoBERT-v2</div>
     </div>
 """, unsafe_allow_html=True)
 

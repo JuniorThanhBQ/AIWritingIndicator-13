@@ -60,7 +60,7 @@
 }
 
 .eyebrow_1 {
-  color: #050505;
+  color: light-dark(#050505, #fff);
   font-family: 'Inter', sans-serif;
   text-transform: uppercase;
   letter-spacing: 0.15em;
@@ -186,6 +186,7 @@
 .gradient-text-blue {
     background: linear-gradient(90deg, #3b82f6, #6366f1);
     -webkit-background-clip: text;
+    background-clip: text;
     -webkit-text-fill-color: transparent;
 }
 
